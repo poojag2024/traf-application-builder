@@ -34,6 +34,8 @@ import {
   Media,
 } from "reactstrap";
 
+import logo from '../../assets/img/brand/tlogo.png';
+
 const AdminNavbar = (props) => {
   return (
     <>
@@ -43,7 +45,8 @@ const AdminNavbar = (props) => {
             className="h4 mb-0 text-white text-uppercase d-none d-lg-inline-block"
             to="/"
           >
-            {props.brandText}
+            <img src={logo} alt={props.brandText} style={{width: "275px"}} />
+
           </Link>
           <Nav className="align-items-center d-none d-md-flex" navbar>
             <UncontrolledDropdown nav>

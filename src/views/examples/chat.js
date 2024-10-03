@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Container, Row, Col, Input, Button, ListGroup, ListGroupItem } from 'reactstrap';
 import Header from "components/Headers/Header.js";
 import ChatBox from "../../components/Chat/ChatBox";
+import CodePreview from 'components/Chat/CodePreview';
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -24,6 +25,7 @@ const Chat = () => {
     <Header />
     <Container className="mt-5">
       <ChatBox />
+      <CodePreview />
     </Container>
     </>
   );

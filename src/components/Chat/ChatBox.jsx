@@ -6,6 +6,7 @@ const ChatBox = () => {
   const [uiFramework, setUIFramework] = useState('');
   const [backendFramework, setBackendFramework] = useState('');
   const [database, setDatabase] = useState('');
+  const [description, setDescription] = useState('');
 
   const UITheme = [
     {id: "", value: "Select Theme"},
@@ -53,10 +54,15 @@ const ChatBox = () => {
     setDatabase(db);
   }
 
+  const addDescription = (appDescription) => {
+    setDescription(appDescription);
+  }
+
   const generateCode = (e) => {
     e.preventDefault();
     // LLM API Call
     console.log({
+      description,
       uiTheme,
       uiFramework,
       backendFramework,
@@ -66,6 +72,18 @@ const ChatBox = () => {
 
   return (
     <Form onSubmit={(e) => generateCode(e)}>
+      <FormGroup>
+        <Label for="descriptionText">
+          Application description
+        </Label>
+        <Input
+          id="descriptionText"
+          name="text"
+          type="textarea"
+          placeholder='Generate UI, ask questions, debug, execute code, and much more.'
+          onChange={(e) => addDescription(e.target.value)}
+        />
+      </FormGroup>
       <FormGroup>
         <Label htmlFor='theme'>Select Theme</Label>
         <Input 

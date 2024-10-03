@@ -64,7 +64,7 @@ const Admin = (props) => {
 
   return (
     <>
-      <Sidebar
+      {/* <Sidebar
         {...props}
         routes={routes}
         logo={{
@@ -72,7 +72,7 @@ const Admin = (props) => {
           imgSrc: require("../assets/img/brand/chatgpt-logo.png"),
           imgAlt: "...",
         }}
-      />
+      /> */}
       <div className="main-content" ref={mainContent}>
         <AdminNavbar
           {...props}

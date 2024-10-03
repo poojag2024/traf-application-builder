@@ -23,13 +23,21 @@ import Login from "views/examples/Login.js";
 import Tables from "views/examples/Tables.js";
 import Icons from "views/examples/Icons.js";
 import Chat from "views/examples/chat";
+import Generator from "views/generator/Generator";
 
 var routes = [
+  // {
+  //   path: "/index",
+  //   name: "New Chat",
+  //   icon: "ni ni-chat-round text-primary",
+  //   component: <Chat />,
+  //   layout: "/admin",
+  // },
   {
     path: "/index",
-    name: "New Chat",
+    name: "Generator App",
     icon: "ni ni-chat-round text-primary",
-    component: <Chat />,
+    component: <Generator />,
     layout: "/admin",
   }
   // {

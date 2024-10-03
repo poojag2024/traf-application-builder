@@ -71,7 +71,7 @@ const GeneratorForm = () => {
 
     return <Form onSubmit={(e) => generateCode(e)}>
         <Row>
-            <Col lg="6">
+            <Col lg="12">
                 <FormGroup>
                     <Label for="descriptionText" className="form-control-label">
                         Application description

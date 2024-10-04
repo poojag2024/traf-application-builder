@@ -17,58 +17,60 @@ import { useState } from "react";
 
 const Generator = () => {
     const [showCode, setShowCode] = useState(true);
-    const [aiResponse, setAIResponse] = useState([
-        {
-            type: "UI",
-            language: "javascript",
-            description: "Frontend code for your application,",
-            code: `import React from 'react';
-                import SyntaxHighlighter from 'react-syntax-highlighter';
-                import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+    const [loading, setLoading] = useState(false);
+    const [aiResponse, setAIResponse] = useState([]);
+//     const [aiResponse, setAIResponse] = useState([
+//         {
+//             type: "UI",
+//             language: "javascript",
+//             description: "Frontend code for your application,",
+//             code: `import React from 'react';
+//                 import SyntaxHighlighter from 'react-syntax-highlighter';
+//                 import { atomOneDarkReasonable } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-                const CodePreview = () => {
-                const codeString = '(num) => num + 1';
+//                 const CodePreview = () => {
+//                 const codeString = '(num) => num + 1';
                 
-                return (
-                    <div>
-                    <SyntaxHighlighter language="jsx" style={atomOneDarkReasonable}>
-                    {codeString}
-                    </SyntaxHighlighter>
-                    </div>
-                )
-                }
+//                 return (
+//                     <div>
+//                     <SyntaxHighlighter language="jsx" style={atomOneDarkReasonable}>
+//                     {codeString}
+//                     </SyntaxHighlighter>
+//                     </div>
+//                 )
+//                 }
 
-                export default CodePreview`    	
-        },
-        {
-            type: "UI",
-            language: "python",
-            description: "Backend code for your application",
-            code: `# Python Program to convert temperature in celsius to fahrenheit
+//                 export default CodePreview`    	
+//         },
+//         {
+//             type: "UI",
+//             language: "python",
+//             description: "Backend code for your application",
+//             code: `# Python Program to convert temperature in celsius to fahrenheit
 
-            # change this value for a different result
-            celsius = 37.5
+//             # change this value for a different result
+//             celsius = 37.5
 
-            # calculate fahrenheit
-            fahrenheit = (celsius * 1.8) + 32
-            print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
-`    	
-        },
-        {
-            type: "Database",
-            language: "oracle",
-            description: "Database for your application",
-            code: `# Python Program to convert temperature in celsius to fahrenheit
+//             # calculate fahrenheit
+//             fahrenheit = (celsius * 1.8) + 32
+//             print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
+// `    	
+//         },
+//         {
+//             type: "Database",
+//             language: "oracle",
+//             description: "Database for your application",
+//             code: `# Python Program to convert temperature in celsius to fahrenheit
 
-            # change this value for a different result
-            celsius = 37.5
+//             # change this value for a different result
+//             celsius = 37.5
 
-            # calculate fahrenheit
-            fahrenheit = (celsius * 1.8) + 32
-            print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
-`    	
-        },
-      ]);
+//             # calculate fahrenheit
+//             fahrenheit = (celsius * 1.8) + 32
+//             print('%0.1f degree Celsius is equal to %0.1f degree Fahrenheit' %(celsius,fahrenheit))
+// `    	
+//         },
+//       ]);
 
     return <>
         <Header />
@@ -87,13 +89,13 @@ const Generator = () => {
                     </Row>
                 </CardHeader>
                 <CardBody>
-                    <GeneratorForm />
+                    <GeneratorForm setAIResponse={setAIResponse}  setLoading={setLoading} />
                 </CardBody>
                 </Card>
             </Col>
             <Col className="order-xl-2" xl="8">
                 {/* gen code goes here */}
-                {showCode && <CodePreview apiResponse={aiResponse} />}
+                {showCode && <CodePreview apiResponse={aiResponse} loading={loading} />}
             </Col>
             </Row>
         </Container>

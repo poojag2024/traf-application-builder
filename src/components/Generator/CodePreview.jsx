@@ -8,8 +8,9 @@ import {
   
   import SyntaxHighlighter from 'react-syntax-highlighter';
   import { useEffect, useState } from "react";
+  import { BeatLoader } from "react-spinners";
   
-  const CodePreview = ({ apiResponse }) => {
+  const CodePreview = ({ apiResponse, loading }) => {
     const [aiResponse, setAIResponse] = useState([]);
   
     useEffect(() => {
@@ -32,6 +33,7 @@ import {
           </Row>
         </CardHeader>
         <CardBody>
+          {loading && <BeatLoader />}
           {aiResponse &&
             aiResponse.map((aiData, index) => (
               <Row key={index} className="mb-4">
